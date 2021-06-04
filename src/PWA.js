@@ -9,9 +9,9 @@ if ("serviceWorker" in navigator) {
       .register("/serviceWorker.js")
       .then(res => window.addEventListener
         ('devicemotion', function(event) {
-        const speed = document.querySelector('#speed');
+        // const speed = document.querySelector('#speed');
 
-        console.log(event.acceleration.x + ' m/s2');
+        // console.log(event.acceleration.x + ' m/s2');
         // document.getElementById("speed").innerHTML = "Bonjour";
         // speed.textContent = event.acceleration.x + ' m/s2';
         }),
