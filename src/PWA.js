@@ -10,14 +10,14 @@ if ("serviceWorker" in navigator) {
       .then(res => window.addEventListener
         ('devicemotion', function(event) {
         // const speed = document.querySelector('#speed');
-        console.log("Service worker is registeredddd")
+        console.log("Service worker is registered")
         console.log(event.acceleration.x + ' m/s2');
         // document.getElementById("speed").innerHTML = "Bonjour";
         // speed.textContent = event.acceleration.x + ' m/s2';
         }),
         geoFindMe()
       )
-      .catch(err => console.log("service worker not registered", err))
+      .catch(err => console.log("service worker not registeredd", err))
   })
 }
 
