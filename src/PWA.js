@@ -9,7 +9,11 @@ if ("serviceWorker" in navigator) {
       .register("/serviceWorker.js")
       .then(res => window.addEventListener
         ('devicemotion', function(event) {
-        console.log(event.acceleration.x + ' m/s2');
+        const speed = document.querySelector('#speed');
+
+        // console.log(event.acceleration.x + ' m/s2');
+        // document.getElementById("speed").innerHTML = "Bonjour";
+        speed.textContent = event.acceleration.x + ' m/s2';
         }),
         geoFindMe()
       )
