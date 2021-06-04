@@ -11,9 +11,9 @@ if ("serviceWorker" in navigator) {
         ('devicemotion', function(event) {
         const speed = document.querySelector('#speed');
 
-        // console.log(event.acceleration.x + ' m/s2');
+        console.log(event.acceleration.x + ' m/s2');
         // document.getElementById("speed").innerHTML = "Bonjour";
-        speed.textContent = event.acceleration.x + ' m/s2';
+        // speed.textContent = event.acceleration.x + ' m/s2';
         }),
         geoFindMe()
       )
