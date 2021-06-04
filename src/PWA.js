@@ -10,8 +10,7 @@ if ("serviceWorker" in navigator) {
       .then(res => window.addEventListener
         ('devicemotion', function(event) {
         // const speed = document.querySelector('#speed');
-        console.log("Service worker registered")
-
+        console.log("Service worker is registeredddd")
         console.log(event.acceleration.x + ' m/s2');
         // document.getElementById("speed").innerHTML = "Bonjour";
         // speed.textContent = event.acceleration.x + ' m/s2';
