@@ -6,12 +6,13 @@
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker
-      .register("/serviceWorker.js")
+      .register("/pwa/serviceWorker.js")
       .then(res => window.addEventListener
         ('devicemotion', function(event) {
         // const speed = document.querySelector('#speed');
+        console.log("Service worker registered")
 
-        // console.log(event.acceleration.x + ' m/s2');
+        console.log(event.acceleration.x + ' m/s2');
         // document.getElementById("speed").innerHTML = "Bonjour";
         // speed.textContent = event.acceleration.x + ' m/s2';
         }),
