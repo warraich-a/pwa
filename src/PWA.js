@@ -6,7 +6,7 @@
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker
-      .register('/{pwa}/sw.js', {scope: '/{pwa}/'})
+      .register('/pwa/serviceWorker.js', {scope: '/pwa/'})
       .then(res => window.addEventListener
         ('devicemotion', function(event) {
         // const speed = document.querySelector('#speed');
