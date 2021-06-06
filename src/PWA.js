@@ -11,24 +11,16 @@ if ("serviceWorker" in navigator) {
       .register('/pwa/serviceWorker.js', {scope: '/pwa/'})
       .then(res => window.addEventListener
         ('devicemotion', function(event) {
-        // const speed = document.querySelector('#speed');
-        // console.log("Service worker is registered")
-        // console.log(event.acceleration.x + ' m/s2');
-        // // document.getElementById("speed").innerHTML = "Bonjour";
-        // speed.textContent = event.acceleration.x + ' m/s2';
-
-        
-        // }
         const speed = document.querySelector('#speed');
-
+        console.log("Service worker is registered")
+        console.log(event.acceleration.x + ' m/s2');
+        // document.getElementById("speed").innerHTML = "Bonjour";
         var currentTime = new Date().getTime();
         if (lastTimestamp === undefined) {
           lastTimestamp = new Date().getTime();
           return; //ignore first call, we need a reference time
         }
-        //  m/s² / 1000 * (miliseconds - miliseconds)/1000 /3600 => km/h (if I didn't made a mistake)
-        speed.textContent += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
-        //... same for Y and Z
+        speed.textContent = event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
         lastTimestamp = currentTime;
       },
       false),
