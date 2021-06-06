@@ -20,7 +20,7 @@ if ("serviceWorker" in navigator) {
           lastTimestamp = new Date().getTime();
           return; //ignore first call, we need a reference time
         }
-        speed.textContent = event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
+        speed.textContent += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
         lastTimestamp = currentTime;
       },
       false),
