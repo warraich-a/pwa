@@ -4,7 +4,6 @@
 
   
 if ("serviceWorker" in navigator) {
-  const speedX = document.querySelector('#speed');
   var lastTimestamp;
   speedY = 0, speedZ = 0;   
   window.addEventListener("load", function() {
@@ -20,6 +19,7 @@ if ("serviceWorker" in navigator) {
 
         
         // }
+        const speed = document.querySelector('#speed');
 
         var currentTime = new Date().getTime();
         if (lastTimestamp === undefined) {
@@ -27,7 +27,7 @@ if ("serviceWorker" in navigator) {
           return; //ignore first call, we need a reference time
         }
         //  m/s² / 1000 * (miliseconds - miliseconds)/1000 /3600 => km/h (if I didn't made a mistake)
-        speedX += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
+        speed.textContent += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
         //... same for Y and Z
         lastTimestamp = currentTime;
       },
