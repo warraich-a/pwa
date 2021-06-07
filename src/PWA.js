@@ -8,22 +8,22 @@ if ("serviceWorker" in navigator) {
   speedY = 0, speedZ = 0;   
   window.addEventListener("load", function() {
     navigator.serviceWorker
-      .register('/pwa/serviceWorker.js', {scope: '/pwa/'})
-      .then(res => window.addEventListener
-        ('devicemotion', function(event) {
-        const speed = document.querySelector('#speed');
-        console.log("Service worker is registered")
-        console.log(event.acceleration.x + ' m/s2');
-        // document.getElementById("speed").innerHTML = "Bonjour";
-        var currentTime = new Date().getTime();
-        if (lastTimestamp === undefined) {
-          lastTimestamp = new Date().getTime();
-          return; //ignore first call, we need a reference time
-        }
-        speed.textContent += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
-        lastTimestamp = currentTime;
-      },
-      false),
+      .register('serviceWorker.js', {scope: '/pwa/'})
+      .then(res => 
+      //   window.addEventListener
+      //   ('devicemotion', function(event) {
+      //   const speed = document.querySelector('#speed');
+      //   console.log(event.acceleration.x + ' m/s2');
+      //   // document.getElementById("speed").innerHTML = "Bonjour";
+      //   var currentTime = new Date().getTime();
+      //   if (lastTimestamp === undefined) {
+      //     lastTimestamp = new Date().getTime();
+      //     return; //ignore first call, we need a reference time
+      //   }
+      //   speed.textContent += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
+      //   lastTimestamp = currentTime;
+      // },
+      // false),
            
         geoFindMe()
       )
@@ -43,6 +43,11 @@ function geoFindMe() {
   function success(position) {
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
+    speed.textContent = position.coords.speed;
+
+    console.log("Service worker is registered")
+    console.log(position.coords.speed)
+
 
     status.textContent = '';
     mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
