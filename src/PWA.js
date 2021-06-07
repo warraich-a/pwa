@@ -42,8 +42,8 @@ function geoFindMe() {
   mapLink.textContent = '';
 
   function success(position) {
-    // const latitude  = position.coords.latitude;
-    // const longitude = position.coords.longitude;
+    const latitude  = position.coords.latitude;
+    const longitude = position.coords.longitude;
     speed.textContent += position.coords.speed * 3.6;
 
     console.log("Service worker is registered")
