@@ -64,7 +64,7 @@ function geoFindMe() {
     status.textContent = 'Geolocation is not supported by your browser';
   } else {
     status.textContent = 'Locating…';
-    speed.textContent= navigator.geolocation.coords.speed * 3.6;
+    navigator.geolocation.getCurrentPosition(success, error);
   }
 
 }
