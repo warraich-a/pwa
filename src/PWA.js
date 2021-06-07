@@ -22,7 +22,7 @@ if ("serviceWorker" in navigator) {
         // }
         // speed.textContent += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
         // lastTimestamp = currentTime;
-        geoFindMe()
+        geoFindMe();
       },
       false),
            
@@ -38,6 +38,7 @@ function geoFindMe() {
   const status = document.querySelector('#status');
   const mapLink = document.querySelector('#map-link');
   const speed = document.querySelector('#speed');
+
   mapLink.href = '';
   mapLink.textContent = '';
 
