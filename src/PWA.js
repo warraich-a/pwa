@@ -12,7 +12,7 @@ if ("serviceWorker" in navigator) {
       .then(res => 
         window.addEventListener
         ('devicemotion', function(event) {
-        // const speed = document.querySelector('#speed');
+        const speed = document.querySelector('#speed');
         // console.log(event.acceleration.x + ' m/s2');
         // // document.getElementById("speed").innerHTML = "Bonjour";
         // var currentTime = new Date().getTime();
