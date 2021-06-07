@@ -22,7 +22,17 @@ if ("serviceWorker" in navigator) {
         // }
         // speed.textContent += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
         // lastTimestamp = currentTime;
-        geoFindMe();
+        if(!navigator.geolocation) {
+          status.textContent = 'Geolocation is not supported by your browser';
+        } else {
+          status.textContent = 'Locating…';
+          navigator.geolocation.getCurrentPosition(position => {
+            const { speed } = position.coords;
+            speed.textContent = Math.round(
+              position.coords.speed * 3.6);
+            // Show a map centered at latitude / longitude.
+          });
+        }
       },
       false),
            
@@ -33,40 +43,45 @@ if ("serviceWorker" in navigator) {
 }
 
 
-function geoFindMe() {
+// function geoFindMe() {
 
-  const status = document.querySelector('#status');
-  const mapLink = document.querySelector('#map-link');
+//   const status = document.querySelector('#status');
+//   const mapLink = document.querySelector('#map-link');
 
-  mapLink.href = '';
-  mapLink.textContent = '';
+//   mapLink.href = '';
+//   mapLink.textContent = '';
 
-  function success(position) {
-    // const latitude  = position.coords.latitude;
-    // const longitude = position.coords.longitude;
-    speed.textContent = Math.round(
-    position.coords.speed * 3.6);
+//   function success(position) {
+//     // const latitude  = position.coords.latitude;
+//     // // const longitude = position.coords.longitude;
+//     // speed.textContent = Math.round(
+//     // position.coords.speed * 3.6);
 
-    console.log("Service worker is registered")
-    console.log(position.coords.speed)
+//     // console.log("Service worker is registered")
+//     // console.log(position.coords.speed)
 
 
-    // status.textContent = '';
-    // mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-    // mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-  }
+//     // status.textContent = '';
+//     // mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+//     // mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+//   }
 
-  function error() {
-    status.textContent = 'Unable to retrieve your location';
-  }
+//   function error() {
+//     status.textContent = 'Unable to retrieve your location';
+//   }
 
-  if(!navigator.geolocation) {
-    status.textContent = 'Geolocation is not supported by your browser';
-  } else {
-    status.textContent = 'Locating…';
-    navigator.geolocation.getCurrentPosition(success, error);
-  }
+//   if(!navigator.geolocation) {
+//     status.textContent = 'Geolocation is not supported by your browser';
+//   } else {
+//     status.textContent = 'Locating…';
+//     navigator.geolocation.getCurrentPosition(position => {
+//       const { speed } = position.coords;
+//       speed.textContent = Math.round(
+//         position.coords.speed * 3.6);
+//       // Show a map centered at latitude / longitude.
+//     });
+//   }
 
-}
+// }
 
 // document.querySelector('#find-me').addEventListener('click', geoFindMe);
