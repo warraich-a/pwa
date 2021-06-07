@@ -37,7 +37,7 @@ function geoFindMe() {
 
   const status = document.querySelector('#status');
   const mapLink = document.querySelector('#map-link');
-
+  const speed = document.querySelector('#speed');
   mapLink.href = '';
   mapLink.textContent = '';
 
@@ -50,9 +50,9 @@ function geoFindMe() {
     console.log(position.coords.speed)
 
 
-    // status.textContent = '';
-    // mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-    // mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+    status.textContent = '';
+    mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+    mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
   }
 
   function error() {
