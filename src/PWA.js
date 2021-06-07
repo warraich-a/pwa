@@ -43,7 +43,7 @@ function geoFindMe() {
   function success(position) {
     const latitude  = position.coords.latitude;
     const longitude = position.coords.longitude;
-    speed.textContent = position.coords.speed;
+    speed.textContent += position.coords.speed * 3.6;
 
     console.log("Service worker is registered")
     console.log(position.coords.speed)
