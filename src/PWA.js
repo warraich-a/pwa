@@ -13,21 +13,11 @@ if ("serviceWorker" in navigator) {
         window.addEventListener
         ('devicemotion', function(event) {
         const speed = document.querySelector('#speed');
-        // console.log(event.acceleration.x + ' m/s2');
-        // // document.getElementById("speed").innerHTML = "Bonjour";
-        // var currentTime = new Date().getTime();
-        // if (lastTimestamp === undefined) {
-        //   lastTimestamp = new Date().getTime();
-        //   return; //ignore first call, we need a reference time
-        // }
-        // speed.textContent += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
-        // lastTimestamp = currentTime;
         if(!navigator.geolocation) {
           status.textContent = 'Geolocation is not supported by your browser';
         } else {
           status.textContent = 'Locating…';
           navigator.geolocation.getCurrentPosition(position => {
-            // const { speed } = position.coords;
             speed.textContent = Math.round(
               position.coords.speed * 3.6);
             // Show a map centered at latitude / longitude.
@@ -38,7 +28,7 @@ if ("serviceWorker" in navigator) {
            
         
       )
-      .catch(err => console.log("service worker not registeredd", err))
+      .catch(err => console.log("service worker not registered", err))
   })
 }
 
