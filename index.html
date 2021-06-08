@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#009578">
 
     <script src="src/PWA.js"></script>
-    <!-- <script src="main.js"> </script> -->
+
     <link rel="stylesheet" href="src/master.css">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="images/logo.png">
@@ -26,5 +26,28 @@
           <br>
           <button id="start">🔑 Start</button>
         </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speedometer</title>
+  <meta name="description" content="Simple speedometer progressive web app based on Geolocation API.">
+  <meta name="theme-color" content="#f1f1f1">
+  <link rel="icon" href="/images/speedometer.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="src/master.css">
+</head>
+<body>
+  <div id="readout">...</div>
+  <div id="readoutUnits">
+    <button id="show-mph" class="selected">mi / h</button>
+    <button id="show-kmh">km / h</button>
+    <br>
+    <button id="start">🔑 Start</button>
+  </div>
+  <script src="src/PWA.js"></script>
 </body>
 </html>

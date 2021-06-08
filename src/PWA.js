@@ -3,22 +3,22 @@
 //   });
 
   
-// if ("serviceWorker" in navigator) {
-//   var lastTimestamp;
-//   speedY = 0, speedZ = 0;   
-//   window.addEventListener("load", function() {
-//     navigator.serviceWorker
-//       .register('/serviceWorker.js', {scope: '/pwa/'})
-//       .then(res => 
+if ("serviceWorker" in navigator) {
+  var lastTimestamp;
+  speedY = 0, speedZ = 0;   
+  window.addEventListener("load", function() {
+    navigator.serviceWorker
+      .register('/serviceWorker.js', {scope: '/pwa/'})
+      .then(res => 
        
-//         // setTimeout(detectSpeed, 30)
-//         setInterval(detectSpeed(), 2000)
-//         // detectSpeed()
+        // setTimeout(detectSpeed, 30)
+        setInterval(detectSpeed(), 2000)
+        // detectSpeed()
         
-//       )
-//       .catch(err => console.log("service worker not registeredd", err))
-//   })
-// }
+      )
+      .catch(err => console.log("service worker not registered", err))
+  })
+}
 
 
 /** @enum {number} */
