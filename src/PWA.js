@@ -10,18 +10,9 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker
       .register('/pwa/serviceWorker.js', {scope: '/pwa/'})
       .then(res => 
-        window.addEventListener
-        ('devicemotion', function(event) {
-        // const speed = document.querySelector('#speed');
-        // console.log(event.acceleration.x + ' m/s2');
-        // // document.getElementById("speed").innerHTML = "Bonjour";
-        // var currentTime = new Date().getTime();
-        // if (lastTimestamp === undefined) {
-        //   lastTimestamp = new Date().getTime();
-        //   return; //ignore first call, we need a reference time
-        // }
-        // speed.textContent += event.acceleration.x / 1000 * ((currentTime - lastTimestamp)/1000)/3600;
-        // lastTimestamp = currentTime;
+       {
+         
+     
         if(!navigator.geolocation) {
           status.textContent = 'Geolocation is not supported by your browser';
         } else {
@@ -33,8 +24,7 @@ if ("serviceWorker" in navigator) {
             // Show a map centered at latitude / longitude.
           });
         }
-      },
-      false),
+      }
            
         
       )
