@@ -8,7 +8,7 @@ if ("serviceWorker" in navigator) {
   speedY = 0, speedZ = 0;   
   window.addEventListener("load", function() {
     navigator.serviceWorker
-      .register('/serviceWorker.js', {scope: '/pwa/'})
+      .register('/pwa/serviceWorker.js', {scope: '/pwa/'})
       .then(res => 
        
         // setTimeout(detectSpeed, 30)
