@@ -84,25 +84,25 @@ const toggleReadoutButtons = () => {
   appOpts.dom.showMph.classList.toggle('selected');
 };
 
-const startAmbientSensor = () => {
-  if ('AmbientLightSensor' in window) {
-    navigator.permissions.query({ name: 'ambient-light-sensor' })
-      .then(result => {
-        if (result.state === 'denied') {
-          return;
-        }
-        const sensor = new AmbientLightSensor({frequency: 0.25});
-        sensor.addEventListener('reading', () => {
-          if (sensor['illuminance'] < 3 && !appOpts.dom.body.classList.contains('dark')) {
-            appOpts.dom.body.classList.toggle('dark');
-          } else if (sensor['illuminance'] > 3 && appOpts.dom.body.classList.contains('dark')) {
-            appOpts.dom.body.classList.toggle('dark');
-          };
-        });
-        sensor.start();
-    });
-  }
-}
+// const startAmbientSensor = () => {
+//   if ('AmbientLightSensor' in window) {
+//     navigator.permissions.query({ name: 'ambient-light-sensor' })
+//       .then(result => {
+//         if (result.state === 'denied') {
+//           return;
+//         }
+//         const sensor = new AmbientLightSensor({frequency: 0.25});
+//         sensor.addEventListener('reading', () => {
+//           if (sensor['illuminance'] < 3 && !appOpts.dom.body.classList.contains('dark')) {
+//             appOpts.dom.body.classList.toggle('dark');
+//           } else if (sensor['illuminance'] > 3 && appOpts.dom.body.classList.contains('dark')) {
+//             appOpts.dom.body.classList.toggle('dark');
+//           };
+//         });
+//         sensor.start();
+//     });
+//   }
+// }
 
 const startWakeLock = () => {
   try {
@@ -132,7 +132,7 @@ const startServiceWorker = () => {
   .catch(err => console.log("service worker not registereddd", err));
 }
 
-startAmbientSensor();
+// startAmbientSensor();
 startServiceWorker();
 
 
