@@ -18,7 +18,6 @@ if ("serviceWorker" in navigator) {
         } else {
           status.textContent = 'Locating…';
           navigator.geolocation.getCurrentPosition(position => {
-            // const { speed } = position.coords;
             speed.textContent = Math.round(
               position.coords.speed * 3.6);
             // Show a map centered at latitude / longitude.
