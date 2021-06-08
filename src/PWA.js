@@ -8,10 +8,10 @@ if ("serviceWorker" in navigator) {
   speedY = 0, speedZ = 0;   
   window.addEventListener("load", function() {
     navigator.serviceWorker
-      .register('/pwa/serviceWorker.js', {scope: '/pwa/'})
+      .register('/serviceWorker.js', {scope: '/pwa/'})
       .then(res => 
-        window.addEventListener
-        ('devicemotion', function(event) {
+        {
+        while(true){
         const speed = document.querySelector('#speed');
         if(!navigator.geolocation) {
           status.textContent = 'Geolocation is not supported by your browser';
@@ -23,12 +23,16 @@ if ("serviceWorker" in navigator) {
             // Show a map centered at latitude / longitude.
           });
         }
-      },
-      false),
+      }}
+      //   window.addEventListener
+      //   ('devicemotion', function(event) {
+        
+      // },
+      // false),
            
         
       )
-      .catch(err => console.log("service worker not registered", err))
+      .catch(err => console.log("service worker not registeredd", err))
   })
 }
 
