@@ -8,30 +8,33 @@ if ("serviceWorker" in navigator) {
   speedY = 0, speedZ = 0;   
   window.addEventListener("load", function() {
     navigator.serviceWorker
-      .register('/pwa/serviceWorker.js', {scope: '/pwa/'})
+      .register('/serviceWorker.js', {scope: '/pwa/'})
       .then(res => 
-       {
-         
-     
-        if(!navigator.geolocation) {
-          status.textContent = 'Geolocation is not supported by your browser';
-        } else {
-          status.textContent = 'Locating…';
-          navigator.geolocation.getCurrentPosition(position => {
-            // const { speed } = position.coords;
-            speed.textContent = Math.round(
-              position.coords.speed * 3.6);
-            // Show a map centered at latitude / longitude.
-          });
-        }
-      }
-           
+       
+        // setTimeout(detectSpeed, 30)
+        setInterval(detectSpeed(), 2000)
+        // detectSpeed()
         
       )
       .catch(err => console.log("service worker not registeredd", err))
   })
 }
 
+function detectSpeed(){
+  //your code
+  if(!navigator.geolocation) {
+    status.textContent = 'Geolocation is not supported by your browser';
+  } else {
+    status.textContent = 'Locating…';
+    navigator.geolocation.getCurrentPosition(position => {
+      // const { speed } = position.coords;
+      speed.textContent = Math.round(
+        position.coords.speed * 3.6);
+      // Show a map centered at latitude / longitude.
+    });
+  }
+
+}
 
 // function geoFindMe() {
 
