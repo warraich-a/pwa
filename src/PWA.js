@@ -1,26 +1,14 @@
-// window.addEventListener('devicemotion', function(event) {
-//     console.log(event.acceleration.x + ' m/s2');
-//   });
 
-  
-// if ("serviceWorker" in navigator) {
-//   var lastTimestamp;
-//   speedY = 0, speedZ = 0;   
-//   window.addEventListener("load", function() {
-//     navigator.serviceWorker
-//       .register('/serviceWorker.js', {scope: '/pwa/'})
-//       .then(res => 
-       
-//         // setTimeout(detectSpeed, 30)
-//         setInterval(detectSpeed(), 2000)
-//         // detectSpeed()
-        
-//       )
-//       .catch(err => console.log("service worker not registered", err))
-//   })
-// }
+function fitBitData(){
+  const access_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzlaRjkiLCJzdWIiOiI5RFhWS0siLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJ3aHIgd3BybyB3bnV0IHdzbGUgd3dlaSB3c29jIHdzZXQgd2FjdCB3bG9jIiwiZXhwIjoxNjI1OTE0MzY3LCJpYXQiOjE2MjMzMjIzNjd9.GEVVbwj2siALHV3HgA3N5JaGuJbz1qwx3sZCHaJThCo"
 
-
+  fetch('https://api.fitbit.com/1.2/user/-/sleep/list.json?afterDate=2021-03-27&sort=desc&offset=0&limit=4', {
+    method: "GET",
+    headers: {"Authorization": "Bearer " + access_token}
+  })
+  .then(response => response.json())
+  .then(json => console.log(json))
+}
 /** @enum {number} */
 const readoutUnits = {
   mph: 2.23694,
@@ -123,10 +111,11 @@ const startServiceWorker = () => {
   navigator.serviceWorker
   .register('/pwa/serviceWorker.js', {scope: '/pwa/'})
   .then(res => 
-   console.log("Registered")
+  //  console.log("Registered")
     // setTimeout(detectSpeed, 30)
     // setInterval(detectSpeed(), 2000)
     // detectSpeed()
+   fitBitData()
     
   )
   .catch(err => console.log("service worker not registereddd", err));
@@ -134,6 +123,8 @@ const startServiceWorker = () => {
 
 // startAmbientSensor();
 startServiceWorker();
+
+
 
 
 // function detectSpeed(){
