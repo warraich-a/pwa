@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/pwa/src/app.css">
   <link rel="manifest" href="/pwa/manifest.json">
 </head>
-<body>
+<body onload="vibrate()">
   
 <header class="main-header">
   
@@ -82,11 +82,10 @@
 <script src="/pwa/src/app.js"></script>
 <script src="/pwa/src/PWA.js"></script>
 <script>
-  function vibrate(ms){
-  navigator.vibrate(ms)
-  
+  function vibrate(){
+  navigator.vibrate(3000)
+  alert("Yessss")
 }
-window.onload = vibrate(3000)
 
 </script>
 </body>
