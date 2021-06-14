@@ -9,14 +9,11 @@ function fitBitData(){
   })
   .then(response => response.json())
   .then(data => {
-    appOpts.watchId = navigator.geolocation.watchPosition(parsePosition,
-      null, options);
-    startWakeLock();
     document.querySelector("#day1").innerText = "Day 1: "+data.sleep[0].minutesAsleep/60 + " Hours",
     document.querySelector("#day2").innerText = "Day 2: "+data.sleep[1].minutesAsleep/60 + " Hours",
     document.querySelector("#day3").innerText = "Day 3: "+data.sleep[2].minutesAsleep/60 + " Hours",
 
-
+    window.onload = speedDetect();
     console.log(data.sleep[0])
 
   }
@@ -47,21 +44,7 @@ const appOpts = {
   wakeLock: null
 };
 
-// document.querySelector('#show-mph').addEventListener('click', (event) => {
-//   appOpts.readoutUnit = readoutUnits.mph;
-//   if (!appOpts.dom.showMph.classList.contains('selected')) {
-//     toggleReadoutButtons();
-//   }
-// });
-
-// document.querySelector('#show-kmh').addEventListener('click', (event) => {
-//   appOpts.readoutUnit = readoutUnits.kmh;
-//   if (!appOpts.dom.showKmh.classList.contains('selected')) {
-//     toggleReadoutButtons();
-//   }
-// });
-
-document.querySelector('#start').addEventListener('click', (event) => {
+function speedDetect(){
   if (appOpts.watchId) {
     navigator.geolocation.clearWatch(appOpts.watchId);
 
@@ -83,6 +66,10 @@ document.querySelector('#start').addEventListener('click', (event) => {
     appOpts.dom.start.textContent = '🛑 Stop';
     appOpts.dom.start.classList.toggle('selected');
   }
+}
+
+document.querySelector('#start').addEventListener('click', (event) => {
+  
 });
 
 const toggleReadoutButtons = () => {
@@ -106,9 +93,10 @@ const parsePosition = (position) => {
   var detectedSpeed = Math.round(
     position.coords.speed * appOpts.readoutUnit);
   appOpts.dom.readout.textContent = detectedSpeed;
-  if(detectedSpeed>0){
-    vibrate(3000);
-  }
+  vibrate(3000);
+  // if(detectedSpeed>0){
+  //   vibrate(3000);
+  // }
 
 };
 
