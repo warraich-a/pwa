@@ -87,25 +87,7 @@ const toggleReadoutButtons = () => {
   appOpts.dom.showMph.classList.toggle('selected');
 };
 
-// const startAmbientSensor = () => {
-//   if ('AmbientLightSensor' in window) {
-//     navigator.permissions.query({ name: 'ambient-light-sensor' })
-//       .then(result => {
-//         if (result.state === 'denied') {
-//           return;
-//         }
-//         const sensor = new AmbientLightSensor({frequency: 0.25});
-//         sensor.addEventListener('reading', () => {
-//           if (sensor['illuminance'] < 3 && !appOpts.dom.body.classList.contains('dark')) {
-//             appOpts.dom.body.classList.toggle('dark');
-//           } else if (sensor['illuminance'] > 3 && appOpts.dom.body.classList.contains('dark')) {
-//             appOpts.dom.body.classList.toggle('dark');
-//           };
-//         });
-//         sensor.start();
-//     });
-//   }
-// }
+
 
 const startWakeLock = () => {
   try {
@@ -118,9 +100,18 @@ const startWakeLock = () => {
 }
 
 const parsePosition = (position) => {
-  appOpts.dom.readout.textContent = Math.round(
+  var detectedSpeed = Math.round(
     position.coords.speed * appOpts.readoutUnit);
+  appOpts.dom.readout.textContent = detectedSpeed;
+  if(detectedSpeed>1){
+    vibrate(3000);
+  }
+
 };
+
+function vibrate(ms){
+  navigator.vibrate(ms)
+}
 
 const startServiceWorker = () => {
   navigator.serviceWorker
@@ -140,114 +131,3 @@ const startServiceWorker = () => {
 // startAmbientSensor();
 startServiceWorker();
 
-
-
-
-// function detectSpeed(){
-//   //your code
-//   const status = document.querySelector('#status');
-//   const speed = document.querySelector('#speed');
-
-
-//   status.textContent = 'Locating again';
-//   // if(!navigator.geolocation) {
-//   //   status.textContent = 'Geolocation is not supported by your browser';
-//   // } else {
-//   //   navigator.geolocation.getCurrentPosition(position => {
-//   //     // const { speed } = position.coords;
-//   //     speed.textContent = Math.round(
-//   //       position.coords.speed * 3.6);
-//   //     // Show a map centered at latitude / longitude.
-//   //   });
-//   // }
-//   navigator.geolocation.getCurrentPosition(firstGeolocationSuccess);
-
-// }
-
-
-// function calculateSpeed(t1, lat1, lng1, t2, lat2, lng2) {
-//   // From Caspar Kleijne's answer starts
-//   /** Converts numeric degrees to radians */
-//   if (typeof(Number.prototype.toRad) === "undefined") {
-//     Number.prototype.toRad = function() {
-//       return this * Math.PI / 180;
-//     }
-//   }
-//   // From Caspar Kleijne's answer ends
-//   // From cletus' answer starts
-//   var R = 6371; // km
-//   var dLat = (lat2-lat1).toRad();
-//   var dLon = (lng2-lng1).toRad();
-//   var lat1 = lat1.toRad();
-//   var lat2 = lat2.toRad();
-
-//   var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-//     Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) *    Math.cos(lat2); 
-//   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-//   var distance = R * c;
-//   // From cletus' answer ends
-
-//   return distance / t2 - t1;
-// }
-
-// function firstGeolocationSuccess(position1) {
-//   var t1 = Date.now();
-//    const speed = document.querySelector('#speed');
-//   navigator.geolocation.getCurrentPosition(
-//     function (position2) {
-//       var speed1 = calculateSpeed
-//       (t1 / 1000, 
-//         position1.coords.latitude, 
-//         position1.coords.longitude, Date.now() / 1000, 
-//         position2.coords.latitude, 
-//         position2.coords.longitude
-        
-//         );
-//         speed.textContent = speed1;
-
-//     }
-//   )
-
-//   }
-
-// function geoFindMe() {
-
-//   const mapLink = document.querySelector('#map-link');
-
-//   mapLink.href = '';
-//   mapLink.textContent = '';
-
-//   function success(position) {
-//     // const latitude  = position.coords.latitude;
-//     // // const longitude = position.coords.longitude;
-//     // speed.textContent = Math.round(
-//     // position.coords.speed * 3.6);
-
-//     // console.log("Service worker is registered")
-//     // console.log(position.coords.speed)
-
-
-//     // status.textContent = '';
-//     // mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-//     // mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-//   }
-
-//   function error() {
-//     status.textContent = 'Unable to retrieve your location';
-//   }
-
-//   if(!navigator.geolocation) {
-//     status.textContent = 'Geolocation is not supported by your browser';
-//   } else {
-//     status.textContent = 'Locating…';
-//     navigator.geolocation.getCurrentPosition(position => {
-//       const { speed } = position.coords;
-//       speed.textContent = Math.round(
-//         position.coords.speed * 3.6);
-//       // Show a map centered at latitude / longitude.
-//     });
-//   }
-
-// }
-
-// document.querySelector('#find-me').addEventListener('click', geoFindMe);
