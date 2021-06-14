@@ -13,7 +13,7 @@ function fitBitData(){
     document.querySelector("#day2").innerText = "Day 2: "+data.sleep[1].minutesAsleep/60 + " Hours",
     document.querySelector("#day3").innerText = "Day 3: "+data.sleep[2].minutesAsleep/60 + " Hours",
 
-    window.onload = speedDetect();
+    window.onload = vibrate();
     console.log(data.sleep[0])
 
   }
