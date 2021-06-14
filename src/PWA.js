@@ -124,7 +124,7 @@ const parsePosition = (position) => {
 
 const startServiceWorker = () => {
   navigator.serviceWorker
-  .register('/serviceWorker.js', {scope: '/pwa/'})
+  .register('/pwa/serviceWorker.js', {scope: '/pwa/'})
   .then(res => 
   //  console.log("Registered")
     // setTimeout(detectSpeed, 30)
