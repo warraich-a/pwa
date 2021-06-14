@@ -39,7 +39,7 @@ const appOpts = {
     data: document.querySelector('#data'),
 
   },
-  readoutUnit: readoutUnits.kmh,
+  readoutUnit: readoutUnits.mph,
   watchId: null,
   wakeLock: null
 };
@@ -104,9 +104,9 @@ const parsePosition = (position) => {
     position.coords.speed * appOpts.readoutUnit);
     
   appOpts.dom.readout.textContent = detectedSpeed;
-  if(detectedSpeed>=2){
+  if(detectedSpeed=0){
     appOpts.dom.readout.textContent = "yeyeyeyey";
-    // navigator.vibrate([5000]);
+    navigator.vibrate([3000]);
 
 
   }
