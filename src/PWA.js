@@ -39,7 +39,7 @@ const appOpts = {
     data: document.querySelector('#data'),
 
   },
-  readoutUnit: readoutUnits.mph,
+  readoutUnit: readoutUnits.kmh,
   watchId: null,
   wakeLock: null
 };
@@ -102,7 +102,9 @@ const startWakeLock = () => {
 const parsePosition = (position) => {
   var detectedSpeed = Math.round(
     position.coords.speed * appOpts.readoutUnit);
+    
   appOpts.dom.readout.textContent = detectedSpeed;
+  navigator.vibrate([5000]);
   if(detectedSpeed>=1){
     appOpts.dom.readout.textContent = "Yes its working";
 
