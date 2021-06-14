@@ -104,9 +104,9 @@ const parsePosition = (position) => {
     position.coords.speed * appOpts.readoutUnit);
     
   appOpts.dom.readout.textContent = detectedSpeed;
-  navigator.vibrate([5000]);
   if(detectedSpeed>=1){
-    appOpts.dom.readout.textContent = "Yes its working";
+    // appOpts.dom.readout.textContent = "Yes its working";
+    navigator.vibrate([5000]);
 
   }
 
