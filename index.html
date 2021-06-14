@@ -1,53 +1,81 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#009578">
-
-    <script src="src/PWA.js"></script>
-
-    <link rel="stylesheet" href="src/master.css">
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="images/logo.png">
-    <title>PWA</title>
-</head>
-<body>
-    <h1>Hello world</h1>
-    <button id = "find-me">Show my location</button><br/>
-        <p id="speed"> </p>
-        <p id = "status"></p>
-        <a id = "map-link" target="_blank"></a>
-        <div id="readout">...</div>
-        <div id="readoutUnits">
-          <button id="show-mph" class="selected">mi / h</button>
-          <button id="show-kmh">km / h</button>
-          <br>
-          <button id="start">🔑 Start</button>
-        </div>
-</body>
-</html> -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Speedometer</title>
-  <meta name="description" content="Simple speedometer progressive web app based on Geolocation API.">
-  <meta name="theme-color" content="#f1f1f1">
-  <link rel="icon" href="/images/speedometer.png">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="src/master.css">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MYB</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="/app.css">
+  <link rel="manifest" href="/manifest.json">
 </head>
 <body>
-  <div id="readout">...</div>
-  <div id="readoutUnits">
-    <button id="show-mph" class="selected">mi / h</button>
-    <button id="show-kmh">km / h</button>
-    <br>
-    <button id="start">🔑 Start</button>
+<header class="main-header">
+  <div class="topnav">
+    <a id="home" href="#home" class="active">Mind your Behaviour</a>
+    <div id="links">
+      <a id="cycle" href="#cycle">Sleep Cycle</a>
+      <a id="tips" href="#Tips">Tips</a>
+      <a id="productivity" href="#Productivity">Productivity</a>
+    </div>
+  <a href="javascript:void(0);" class="icon" onclick="dropdown()">
+  <img id="burger" src="/images/burger.png">
+  </a>
   </div>
-  <script src="src/PWA.js"></script>
+</header>
+<div id="data">...</div>
+
+<div id="readoutUnits">
+  <button id="show-mph" class="selected">mi / h</button>
+  <button id="show-kmh">km / h</button>
+  <br>
+  <button id="start">🔑 Start</button>
+
+<article class="card" id="pwa">
+  <div class="card__image">
+    <img src="/images/mind.jpg" alt="Mind you behaviour">
+  </div>
+  <div class="card__cycle">
+    <h3>Your sleep cycle</h3>
+    <p id="day1">
+      Day: 
+    </p>
+    <p id="day2">
+      
+    </p>
+    <p class="day3">
+      
+    </p>
+    <p class="day4">
+      
+    </p>
+    <p class="day5">
+      
+    </p>
+    <p class="day6">
+      
+    </p>
+    <p class="day7">
+      
+    </p>
+  </div>
+  <div class="card__tips">
+    <h3>Sleep tip:</h3>
+    <p>Try and dim your lights at least an hour before you go to bed
+    </p>
+
+  </div>
+
+  <div class="card__productivity">
+    <h3>How productive were you today?</h3>
+    <p>Try and dim your lights at least an hour before you go to bed
+    </p>
+
+  </div>
+</article>
+<script src="/src/app.js"></script>
+<script src="/src/PWA.js"></script>
+
 </body>
 </html>

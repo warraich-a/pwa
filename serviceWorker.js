@@ -2,7 +2,7 @@
 const assets = [
   "/",
   "/index.html",
-  "/src/master.css",
+  "/app.css",
   "/src/PWA.js",
   "/images/logo.png"
 ]
