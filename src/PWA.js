@@ -13,7 +13,7 @@ function fitBitData(){
     document.querySelector("#day2").innerText = "Day 2: "+data.sleep[1].minutesAsleep/60 + " Hours",
     document.querySelector("#day3").innerText = "Day 3: "+data.sleep[2].minutesAsleep/60 + " Hours",
 
-    navigator.vibrate(3000);
+
     console.log(data.sleep[0])
 
   }
@@ -44,7 +44,21 @@ const appOpts = {
   wakeLock: null
 };
 
-function speedDetect(){
+// document.querySelector('#show-mph').addEventListener('click', (event) => {
+//   appOpts.readoutUnit = readoutUnits.mph;
+//   if (!appOpts.dom.showMph.classList.contains('selected')) {
+//     toggleReadoutButtons();
+//   }
+// });
+
+// document.querySelector('#show-kmh').addEventListener('click', (event) => {
+//   appOpts.readoutUnit = readoutUnits.kmh;
+//   if (!appOpts.dom.showKmh.classList.contains('selected')) {
+//     toggleReadoutButtons();
+//   }
+// });
+
+document.querySelector('#start').addEventListener('click', (event) => {
   if (appOpts.watchId) {
     navigator.geolocation.clearWatch(appOpts.watchId);
 
@@ -66,10 +80,6 @@ function speedDetect(){
     appOpts.dom.start.textContent = '🛑 Stop';
     appOpts.dom.start.classList.toggle('selected');
   }
-}
-
-document.querySelector('#start').addEventListener('click', (event) => {
-  
 });
 
 const toggleReadoutButtons = () => {
@@ -93,10 +103,10 @@ const parsePosition = (position) => {
   var detectedSpeed = Math.round(
     position.coords.speed * appOpts.readoutUnit);
   appOpts.dom.readout.textContent = detectedSpeed;
-  vibrate(3000);
-  // if(detectedSpeed>0){
-  //   vibrate(3000);
-  // }
+  if(detectedSpeed>=1){
+    appOpts.dom.readout.textContent = "Yes its working";
+
+  }
 
 };
 
