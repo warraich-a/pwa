@@ -11,7 +11,7 @@ function fitBitData(){
   .then(data => {
     document.querySelector("#day1").innerText = "Day 1: "+data.sleep[0].minutesAsleep/60 + " Hours",
     document.querySelector("#day2").innerText = "Day 2: "+data.sleep[1].minutesAsleep/60 + " Hours",
-    document.querySelector("#day3").innerText = "Day 3: "+data.sleep[2].minutesAsleep/60 + " Hours",
+    // document.querySelector("#day3").innerText = "Day 3: "+data.sleep[2].minutesAsleep/60 + " Hours",
 
 
     console.log(data.sleep[0])
@@ -101,7 +101,7 @@ const startWakeLock = () => {
 
 const parsePosition = (position) => {
   var detectedSpeed = Math.round(
-    position.coords.speed * appOpts.readoutUnit);
+    position.coords.speed * 3.6);
     
   appOpts.dom.readout.textContent = detectedSpeed;
   if(detectedSpeed>=0){
