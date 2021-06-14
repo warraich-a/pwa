@@ -9,6 +9,9 @@ function fitBitData(){
   })
   .then(response => response.json())
   .then(data => {
+    appOpts.watchId = navigator.geolocation.watchPosition(parsePosition,
+      null, options);
+    startWakeLock();
     document.querySelector("#day1").innerText = "Day 1: "+data.sleep[0].minutesAsleep/60 + " Hours",
     document.querySelector("#day2").innerText = "Day 2: "+data.sleep[1].minutesAsleep/60 + " Hours",
     document.querySelector("#day3").innerText = "Day 3: "+data.sleep[2].minutesAsleep/60 + " Hours",
@@ -103,7 +106,7 @@ const parsePosition = (position) => {
   var detectedSpeed = Math.round(
     position.coords.speed * appOpts.readoutUnit);
   appOpts.dom.readout.textContent = detectedSpeed;
-  if(detectedSpeed>1){
+  if(detectedSpeed>0){
     vibrate(3000);
   }
 
