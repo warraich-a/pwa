@@ -104,7 +104,7 @@ const parsePosition = (position) => {
     position.coords.speed * 3.6);
     
   appOpts.dom.readout.textContent = detectedSpeed;
-  if(detectedSpeed==0){
+  if(detectedSpeed>=30){
     appOpts.dom.readout.textContent = "yeyeyeyey";
     navigator.vibrate([3000]);
 
