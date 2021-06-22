@@ -126,7 +126,7 @@ function vibrate(ms){
 
 const startServiceWorker = () => {
   navigator.serviceWorker
-  .register('pwa/serviceWorker.js')
+  .register('/pwa/serviceWorker.js')
   .then(res => 
   //  console.log("Registered")
     // setTimeout(detectSpeed, 30)
