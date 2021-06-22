@@ -1,7 +1,7 @@
 
  var fruits;
 function fitBitData(){
-  const access_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzlaRjkiLCJzdWIiOiI5RFhWS0siLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJ3aHIgd3BybyB3bnV0IHdzbGUgd3dlaSB3c29jIHdzZXQgd2FjdCB3bG9jIiwiZXhwIjoxNjI1OTE0MzY3LCJpYXQiOjE2MjMzMjIzNjd9.GEVVbwj2siALHV3HgA3N5JaGuJbz1qwx3sZCHaJThCo"
+  const access_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyM0I5R0giLCJzdWIiOiI5RjdHRlkiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJ3aHIgd251dCB3cHJvIHdzbGUgd3dlaSB3c29jIHdzZXQgd2FjdCB3bG9jIiwiZXhwIjoxNjI0OTcwMzA0LCJpYXQiOjE2MjQzNjU1NTJ9.je2B8gj-ynKdxopBdidf7KawQ-_sq1Yb9v6gXC6u0uY"
 
   fetch('https://api.fitbit.com/1.2/user/-/sleep/list.json?afterDate=2021-03-27&sort=desc&offset=0&limit=4', {
     method: "GET",
@@ -11,7 +11,7 @@ function fitBitData(){
   .then(data => {
     document.querySelector("#day1").innerText = "Day 1: "+data.sleep[0].minutesAsleep/60 + " Hours",
     document.querySelector("#day2").innerText = "Day 2: "+data.sleep[1].minutesAsleep/60 + " Hours",
-    // document.querySelector("#day3").innerText = "Day 3: "+data.sleep[2].minutesAsleep/60 + " Hours",
+    document.querySelector("#day3").innerText = "Day 3: "+data.sleep[2].minutesAsleep/60 + " Hours",
 
 
     console.log(data.sleep[0])
