@@ -52,7 +52,7 @@
 	#SLEEP_CYCLE {
 		position: absolute;
 		display: block;
-		width: 100%;
+		max-width: 100%;
 		height: 926px;
 		background-image: linear-gradient(#E4E4E4, #ADADAD);
 		overflow: hidden;
