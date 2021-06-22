@@ -101,14 +101,12 @@ const parsePosition = (position) => {
     
   // appOpts.dom.readout.textContent = detectedSpeed;
   console.log("Detecting the speed")
-  if(lastDaySleep<7.0){
+  if(lastDaySleep<2.0){
     if(detectedSpeed>=30){
       // appOpts.dom.readout.textContent = "yeyeyeyey";
     navigator.vibrate([3000]);
     }
-  }else{
-    console.log("your last day sleep is good")
-  }
+}
 
 };
 
