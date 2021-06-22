@@ -11,7 +11,7 @@ function fitBitData(){
   .then(data => {
     document.querySelector("#day1").innerText = "Day 1: "+(data.sleep[0].minutesAsleep/60).toFixed(2) + " Hours",
     document.querySelector("#day2").innerText = "Day 2: "+(data.sleep[1].minutesAsleep/60).toFixed(2) + " Hours",
-    document.querySelector("#day2").innerText = "Day 3: "+(data.sleep[2].minutesAsleep/60).toFixed(2) + " Hours",
+    document.querySelector("#day3").innerText = "Day 3: "+(data.sleep[2].minutesAsleep/60).toFixed(2) + " Hours",
     document.querySelector("#day4").innerText = "Day 4: "+(data.sleep[3].minutesAsleep/60).toFixed(2) + " Hours",
     document.querySelector("#day5").innerText = "Day 5: "+(data.sleep[4].minutesAsleep/60).toFixed(2) + " Hours",
     document.querySelector("#day6").innerText = "Day 6: "+(data.sleep[5].minutesAsleep/60).toFixed(2) + " Hours",
