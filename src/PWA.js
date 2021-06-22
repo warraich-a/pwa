@@ -17,7 +17,7 @@ function fitBitData(){
     document.querySelector("#day6").innerText = "Day 6: "+(data.sleep[5].minutesAsleep/60).toFixed(2) + " Hours",
     document.querySelector("#day7").innerText = "Day 7: "+(data.sleep[6].minutesAsleep/60).toFixed(2) + " Hours",
 
-    lastDaySleep = (data.sleep[6].minutesAsleep/60).toFixed(2);
+    lastDaySleep = (data.sleep[3].minutesAsleep/60).toFixed(2);
     console.log(data.sleep[0])
 
   }
@@ -101,12 +101,14 @@ const parsePosition = (position) => {
     
   // appOpts.dom.readout.textContent = detectedSpeed;
   console.log("Detecting the speed")
-  if(lastDaySleep<2.0){
+  if(lastDaySleep<7.0){
     if(detectedSpeed>=30){
       // appOpts.dom.readout.textContent = "yeyeyeyey";
     navigator.vibrate([3000]);
     }
-}
+  }else{
+    console.log("your last day sleep is good")
+  }
 
 };
 
