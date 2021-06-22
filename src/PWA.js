@@ -58,7 +58,10 @@ const appOpts = {
 //   }
 // });
 
-document.querySelector('#start').addEventListener('click', (event) => {
+var checkbox = document.querySelector("input[name=checkbox]")
+
+checkbox.addEventListener('change', function() { 
+  if(this.checked){
   if (appOpts.watchId) {
     navigator.geolocation.clearWatch(appOpts.watchId);
 
@@ -67,8 +70,8 @@ document.querySelector('#start').addEventListener('click', (event) => {
     }
 
     appOpts.watchId = null;
-    appOpts.dom.start.textContent = '🔑 Start';
-    appOpts.dom.start.classList.toggle('selected');
+    // appOpts.dom.start.textContent = '🔑 Start';
+    // appOpts.dom.start.classList.toggle('selected');
   } else {
     const options = {
       enableHighAccuracy: true
@@ -77,9 +80,11 @@ document.querySelector('#start').addEventListener('click', (event) => {
       null, options);
     startWakeLock();
 
-    appOpts.dom.start.textContent = '🛑 Stop';
-    appOpts.dom.start.classList.toggle('selected');
+    // appOpts.dom.start.textContent = '🛑 Stop';
+    // appOpts.dom.start.classList.toggle('selected');
+  
   }
+}
 });
 
 const toggleReadoutButtons = () => {
@@ -103,10 +108,12 @@ const parsePosition = (position) => {
   var detectedSpeed = Math.round(
     position.coords.speed * 3.6);
     
-  appOpts.dom.readout.textContent = detectedSpeed;
+  // appOpts.dom.readout.textContent = detectedSpeed;
+  console.log("Detecting the speed")
   if(detectedSpeed>=30){
-    appOpts.dom.readout.textContent = "yeyeyeyey";
+    // appOpts.dom.readout.textContent = "yeyeyeyey";
     navigator.vibrate([3000]);
+    
 
 
   }
@@ -119,7 +126,7 @@ function vibrate(ms){
 
 const startServiceWorker = () => {
   navigator.serviceWorker
-  .register('/pwa/serviceWorker.js', {scope: '/pwa/'})
+  .register('pwa/serviceWorker.js')
   .then(res => 
   //  console.log("Registered")
     // setTimeout(detectSpeed, 30)
