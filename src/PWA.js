@@ -1,5 +1,5 @@
-
- var fruits;
+var lastDaySleep
+var fruits;
 function fitBitData(){
   const access_token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyM0I5R0giLCJzdWIiOiI5RjdHRlkiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJ3aHIgd251dCB3cHJvIHdzbGUgd3dlaSB3c29jIHdzZXQgd2FjdCB3bG9jIiwiZXhwIjoxNjI0OTcwMzA0LCJpYXQiOjE2MjQzNjU1NTJ9.je2B8gj-ynKdxopBdidf7KawQ-_sq1Yb9v6gXC6u0uY"
 
@@ -12,8 +12,12 @@ function fitBitData(){
     document.querySelector("#day1").innerText = "Day 1: "+data.sleep[0].minutesAsleep/60 + " Hours",
     document.querySelector("#day2").innerText = "Day 2: "+data.sleep[1].minutesAsleep/60 + " Hours",
     document.querySelector("#day3").innerText = "Day 3: "+data.sleep[2].minutesAsleep/60 + " Hours",
+    document.querySelector("#day4").innerText = "Day 4: "+data.sleep[3].minutesAsleep/60 + " Hours",
+    document.querySelector("#day5").innerText = "Day 5: "+data.sleep[4].minutesAsleep/60 + " Hours",
+    document.querySelector("#day6").innerText = "Day 6: "+data.sleep[5].minutesAsleep/60 + " Hours",
+    document.querySelector("#day7").innerText = "Day 7: "+data.sleep[6].minutesAsleep/60 + " Hours",
 
-
+    lastDaySleep = (data.sleep[6].minutesAsleep/60).toFixed();
     console.log(data.sleep[0])
 
   }
@@ -44,19 +48,6 @@ const appOpts = {
   wakeLock: null
 };
 
-// document.querySelector('#show-mph').addEventListener('click', (event) => {
-//   appOpts.readoutUnit = readoutUnits.mph;
-//   if (!appOpts.dom.showMph.classList.contains('selected')) {
-//     toggleReadoutButtons();
-//   }
-// });
-
-// document.querySelector('#show-kmh').addEventListener('click', (event) => {
-//   appOpts.readoutUnit = readoutUnits.kmh;
-//   if (!appOpts.dom.showKmh.classList.contains('selected')) {
-//     toggleReadoutButtons();
-//   }
-// });
 
 var checkbox = document.querySelector("input[name=checkbox]")
 
@@ -110,13 +101,14 @@ const parsePosition = (position) => {
     
   // appOpts.dom.readout.textContent = detectedSpeed;
   console.log("Detecting the speed")
+  if(lastDaySleep<2.0){
+
+ 
   if(detectedSpeed>=30){
     // appOpts.dom.readout.textContent = "yeyeyeyey";
     navigator.vibrate([3000]);
-    
-
-
   }
+}
 
 };
 
