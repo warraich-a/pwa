@@ -132,3 +132,21 @@ const startServiceWorker = () => {
 // startAmbientSensor();
 startServiceWorker();
 
+const inpKey = document.getElementById("inpKey");
+
+
+function insert(){
+  const key = inpKey.value;
+  console.log(key);
+
+  if(key){
+    localStorage.setItem("Rating: ", key);
+    if(key <= 3){
+      alert("We noticed that you did not have a productive day, try getting some sleep tonight!")
+    }
+    location.reload();
+
+  }
+  
+  
+};

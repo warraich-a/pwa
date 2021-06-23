@@ -121,102 +121,14 @@
 		<span>On a scale of 1 to 10</span>
 	</div>
 	<div id="Group_11">
-		<div id="Group_1">
-			<svg class="Ellipse_1">
-				<ellipse id="Ellipse_1" rx="15" ry="15" cx="15" cy="15">
-				</ellipse>
-			</svg>
-			<div id="ID1">
-				<span>1</span>
-			</div>
-		</div>
-		<div id="Group_2">
-			<svg class="Ellipse_1_bw">
-				<ellipse id="Ellipse_1_bw" rx="15" ry="15" cx="15" cy="15">
-				</ellipse>
-			</svg>
-			<div id="ID2">
-				<span>2</span>
-			</div>
-		</div>
-		<div id="Group_3">
-			<svg class="Ellipse_1_bz">
-				<ellipse id="Ellipse_1_bz" rx="15" ry="15" cx="15" cy="15">
-				</ellipse>
-			</svg>
-			<div id="ID3">
-				<span>3</span>
-			</div>
-		</div>
-		<div id="Group_4">
-			<svg class="Ellipse_1_b">
-				<ellipse id="Ellipse_1_b" rx="15" ry="15" cx="15" cy="15">
-				</ellipse>
-			</svg>
-			<div id="ID4">
-				<span>4</span>
-			</div>
-		</div>
-		<div id="Group_5">
-			<svg class="Ellipse_1_ca">
-				<ellipse id="Ellipse_1_ca" rx="15" ry="15" cx="15" cy="15">
-				</ellipse>
-			</svg>
-			<div id="ID5">
-				<span>5</span>
-			</div>
-		</div>
-		<div id="Group_6">
-			<svg class="Ellipse_1_cb">
-				<ellipse id="Ellipse_1_cb" rx="15" ry="15" cx="15" cy="15">
-				</ellipse>
-			</svg>
-			<div id="ID6">
-				<span>6</span>
-			</div>
-		</div>
-		<div id="Group_7">
-			<svg class="Ellipse_1_cc">
-				<ellipse id="Ellipse_1_cc" rx="15" ry="15" cx="15" cy="15">
-				</ellipse>
-			</svg>
-			<div id="ID7">
-				<span>7</span>
-			</div>
-		</div>
-		<div onclick="application.goToTargetView(event)" id="Group_8">
-			<svg class="Ellipse_1_ce">
-				<ellipse id="Ellipse_1_ce" rx="15" ry="15" cx="15" cy="15">
-				</ellipse>
-			</svg>
-			<div id="ID8">
-				<span>8</span>
-			</div>
-		</div>
-		<div id="Group_9">
-			<svg class="Ellipse_1_ch">
-				<ellipse id="Ellipse_1_ch" rx="15" ry="15" cx="15" cy="15">
-				</ellipse>
-			</svg>
-			<div id="ID9">
-				<span>9</span>
-			</div>
-		</div>
-		<div id="Group_10">
-			<svg class="Ellipse_1_ck">
-				<ellipse id="Ellipse_1_ck" rx="15" ry="15" cx="15" cy="15">
-				</ellipse>
-			</svg>
-			<div id="ID10">
-				<span>10</span>
-			</div>
-		</div>
+		<input type="number" id="inpKey" placeholder="Enter 0-10" min="1" max="10" style="width: 200px; margin-top: 30%;">
+	
 	</div>
-	<svg class="Rectangle_10">
+	<button class="Rectangle_10" onclick=insert() style="cursor: pointer;">
 		<rect id="Rectangle_10" rx="26" ry="26" x="0" y="0" width="381" height="104">
 		</rect>
-	</svg>
-	<div id="SUBMIT">
+	</button>
+	<div id="SUBMIT" style="cursor: pointer; color: black;" onclick=insert() >
 		<span>SUBMIT</span>
 	</div>
 </div>
