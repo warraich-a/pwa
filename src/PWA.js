@@ -132,3 +132,24 @@ const startServiceWorker = () => {
 // startAmbientSensor();
 startServiceWorker();
 
+const inpKey = document.getElementById("inpKey");
+const submit = document.getElementById("btnSubmit")
+
+function insert(){
+
+  const key = inpKey.value;
+  if(inpKey.value > 10){
+    alert("You cannot imput a larger number than 10")
+    inpKey.value = 10;
+    console.log(key)
+  }
+  if(inpKey.value < 0){
+    alert("You cannot imput a smaller number than 0")
+    inpKey.value = 0;
+    console.log(key)
+
+  }
+  
+
+}
+
