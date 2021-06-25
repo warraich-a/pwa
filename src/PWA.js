@@ -19,7 +19,9 @@ function fitBitData() {
 
         lastDaySleep = (data.sleep[1].minutesAsleep / 60).toFixed(2);
       console.log(data.sleep[0])
-
+      if (lastDaySleep < 2.0) {
+        alert("You have slept under 2 hours, you should get some sleep");
+      }
     }
     )
 }
@@ -91,13 +93,21 @@ const parsePosition = (position) => {
   if (lastDaySleep < 2.0) {
     console.log("Detecting the speed")
 
+
     if (detectedSpeed >= 30) {
+      alert("Your phones vibrates because you did not sleep well and you are driving fast ");
+
       // appOpts.dom.readout.textContent = "yeyeyeyey";
       navigator.vibrate([3000]);
     }
   }
 
 };
+// document.addEventListener('DOMContentLoaded', function () {
+//   if (lastDaySleep < 2.0) {
+//     alert("You have slept under 2 hours, you should get some sleep");
+//   }
+// }, false);
 
 function vibrate(ms) {
   navigator.vibrate(ms)
