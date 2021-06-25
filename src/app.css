@@ -461,6 +461,27 @@
 		color: rgba(0,0,0,1);
 	}
 }
+
+#cycle:after {
+  -webkit-animation: cycle 4s infinite; /* Safari 4+ */
+  -moz-animation: cycle 4s infinite; /* Fx 5+ */
+  -o-animation: cycle 4s infinite; /* Opera 12+ */
+  animation: cycle 4s infinite; /* IE 10+, Fx 29+ */
+}
+@keyframes cycle {
+0% {
+  content: "Increase bright light exposure during the day";
+}
+33% {
+  content: "Reduce blue light exposure in the evening";
+}
+66% {
+  content: "Don’t consume caffeine late in the day";
+}
+100% {
+  content: "Stretching first thing<br/>in the morning can <br/>relieve any tension <br/>or pain from sleeping <br/>the night before. <br/>It also helps increase <br/>your blood flow and<br/>prepares your body<br/>for the day ahead.";
+}
+}
 @media (min-width: 0px) {
 	.mediaViewInfo {
 		--web-view-name: PRODUCTIVITY;
