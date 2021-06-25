@@ -5,10 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mind Your Behaviour</title>
-<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="/pwa/src/app.css"/>
-<script type="text/javascript" src="/pwa/src/app.js"></script>
-<link rel="manifest" href="/pwa/manifest.json">
-<link rel="stylesheet" href="https://use.typekit.net/gxq8pja.css%22%3E"/>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="/src/app.css"/>
+<script type="text/javascript" src="/src/app.js"></script>
+<link rel="manifest" href="/manifest.json">
+<link rel="stylesheet" href="https://use.typekit.net/gxq8pja.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
@@ -85,7 +85,7 @@
 		<span>Tips</span>
 	</div>
 	<div id="Starting_your_day">
-		<span>Starting your day:</span>
+		<span>Tips for your day:</span>
 	</div>
 	<div id="Stretching_first_thing_in_the_">
 		<!-- <div id="content-1">Stretching first thing<br/>in the morning can <br/>relieve any tension <br/>or pain from sleeping <br/>the night before. <br/>It also helps increase <br/>your blood flow and<br/>prepares your body<br/>for the day ahead.</div>
@@ -224,7 +224,7 @@
 		<span>Tips</span>
 	</div>
 	<div id="Starting_your_day_ef">
-		<span>Starting your day:</span>
+		<span>Tips for your day:</span>
 	</div>
 	<div id="Stretching_first_thing_in_the__eg">
 		<span id="content-1">Stretching first thing<br/>in the morning can <br/>relieve any tension <br/>or pain from sleeping <br/>the night before. <br/>It also helps increase <br/>your blood flow and<br/>prepares your body<br/>for the day ahead.</span>
@@ -409,7 +409,7 @@
 		<span>Tips</span>
 	</div>
 	<div id="Starting_your_day_gi">
-		<span>Starting your day:</span>
+		<span>Tips for your day:</span>
 	</div>
 	<div id="Stretching_first_thing_in_the__gj">
 		<span>Stretching first thing<br/>in the morning can <br/>relieve any tension <br/>or pain from sleeping <br/>the night before. <br/>It also helps increase <br/>your blood flow and<br/>prepares your body<br/>for the day ahead.</span>
@@ -593,10 +593,16 @@
 <script type="text/javascript" src="/pwa/src/PWA.js"></script>
 <script type="text/javascript" src="/pwa/src/app.js"></script>
 <script> 
-const textList = ["Increase bright light<br> exposure during the day", 
+const textList = ["Try to resolve your<br> worries or concerns<br> before bedtime.<br> Jot down what's on your<br> mind and then set it<br> aside for tomorrow.",
+                  "Long daytime naps<br> can interfere with<br> nighttime sleep.<br> If you choose to nap,<br> limit yourself to up to<br> 30 minutes and avoid<br> doing so late in the day.",
+                  "Stick to a sleep<br> schedule Set aside no<br> more than eight hours<br> for sleep. The <br> recommended amount<br> of sleep for a healthy<br> adult is at least seven<br> hours. Most people do<br> not need more than eight<br> hours in bed to<br> achieve this goal.",
+                  "Increase bright light<br> exposure during the day", 
                   "Reduce blue light<br> exposure in the evening", 
                   "Don’t consume caffeine<br> late in the day", 
-                  "Stretching first thing<br/>in the morning can <br/>relieve any tension <br/>or pain from sleeping <br/>the night before. <br/>It also helps increase <br/>your blood flow and<br/>prepares your body<br/>for the day ahead."];
+                  "Stretching first thing<br/>in the morning can <br/>relieve any tension <br/>or pain from sleeping <br/>the night before. <br/>It also helps increase <br/>your blood flow and<br/>prepares your body<br/>for the day ahead.",
+                  "Reduce irregular or long<br> daytime naps",
+                  "Stick to a sleep<br> schedule Set aside no<br> more than eight<br> hours for sleep. <br>The recommended amount of <br>sleep for a healthy adult<br> is at least seven hours.<br> Most people don not<br> need more than eight hours<br> in bed to achieve this <br>goal."
+                  ];
 const cycle = document.querySelector("#cycle");
 let i = 0;
 const cycleText = () => {
@@ -604,9 +610,7 @@ const cycleText = () => {
   i = ++i % textList.length;
 };
 cycleText();
-setInterval(cycleText, 10000);
-  
-  
+setInterval(cycleText, 30000);
   </script>
 
 </body>
